@@ -363,7 +363,7 @@ export const ARTICLES = [
       role: "Groupe d'Étude des Vulnérabilités Urbaines",
       avatar: "assets/images/hero.jpg"
     },
-    heroImage: "assets/images/hero.jpg",
+    heroImage: "assets/images/emeutes_insurrection.jpg",
     featured: false,
     excerpt: "La thèse de l'archipélisation des sociétés occidentales n'est plus une théorie académique. Des banlieues françaises aux banlieues de Leeds ou aux quartiers de Bruxelles et Malmö, des zones entières échappent progressivement au contrôle de l'État.",
     keyTakeaways: [
@@ -474,7 +474,7 @@ export const ARTICLES = [
       role: "Section Prospective Macrofinancière",
       avatar: "assets/images/hero.jpg"
     },
-    heroImage: "assets/images/hero.jpg",
+    heroImage: "assets/images/emeutes_insurrection.jpg",
     featured: false,
     excerpt: "L'État-providence a servi pendant soixante-dix ans de bouclier contre les guerres civiles en Occident. Que se passe-t-il lorsque la dette publique ne permet plus d'acheter la paix sociale ?",
     keyTakeaways: [
@@ -522,7 +522,7 @@ export const ARTICLES = [
       role: "Direction Scientifique des Chroniques d'Occident",
       avatar: "assets/images/hero.jpg"
     },
-    heroImage: "assets/images/hero.jpg",
+    heroImage: "assets/images/emeutes_insurrection.jpg",
     featured: false,
     excerpt: "Comment se dessine l'avenir sécuritaire de l'Occident ? Décryptage des quatre matrices prospectives issues des wargames militaires et des modèles d'analyse sociopolitique pour la prochaine décennie.",
     keyTakeaways: [
