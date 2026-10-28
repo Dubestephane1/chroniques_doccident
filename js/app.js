@@ -4,7 +4,7 @@
  * du baromètre de risque et du menu sticky.
  */
 
-import { ARTICLES, STRATEGIC_INDICATORS, CRISIS_SCENARIOS } from './data.js';
+
 
 class StrategicApp {
   constructor() {
@@ -160,7 +160,7 @@ class StrategicApp {
     }
     if (this.shareArticleBtn) {
       this.shareArticleBtn.addEventListener('click', () => {
-        const article = ARTICLES.find(a => a.id === this.activeArticleId);
+        const article = window.ARTICLES.find(a => a.id === this.activeArticleId);
         const baseUrl = window.location.origin + window.location.pathname;
         const articleUrl = article ? `${baseUrl}#${article.slug}` : window.location.href;
         navigator.clipboard?.writeText(articleUrl);
@@ -250,7 +250,7 @@ class StrategicApp {
   }
 
   renderHero() {
-    const featured = ARTICLES.find(a => a.featured) || ARTICLES[0];
+    const featured = window.ARTICLES.find(a => a.featured) || window.ARTICLES[0];
     if (!this.heroContainer) return;
 
     this.heroContainer.innerHTML = `
@@ -303,7 +303,7 @@ class StrategicApp {
   renderSidebarGauges() {
     if (!this.gaugeSidebar) return;
 
-    const gaugesHtml = STRATEGIC_INDICATORS.slice(0, 4).map(ind => {
+    const gaugesHtml = window.STRATEGIC_INDICATORS.slice(0, 4).map(ind => {
       const percentage = (ind.score / 10) * 100;
       let colorClass = 'fill-amber';
       let scoreClass = 'med';
@@ -337,7 +337,7 @@ class StrategicApp {
   renderArticles() {
     if (!this.articlesGrid) return;
 
-    const filtered = ARTICLES.filter(art => {
+    const filtered = window.ARTICLES.filter(art => {
       const matchCat = this.currentCategory === 'all' || art.category === this.currentCategory;
       const matchSearch = !this.searchQuery || 
         art.title.toLowerCase().includes(this.searchQuery) ||
@@ -415,7 +415,7 @@ class StrategicApp {
   renderBarometer() {
     if (!this.barometerGrid) return;
 
-    this.barometerGrid.innerHTML = STRATEGIC_INDICATORS.map(ind => {
+    this.barometerGrid.innerHTML = window.STRATEGIC_INDICATORS.map(ind => {
       return `
         <div class="barometer-card">
           <div class="barometer-header">
@@ -464,7 +464,7 @@ class StrategicApp {
   renderScenarios() {
     if (!this.scenariosGrid) return;
 
-    this.scenariosGrid.innerHTML = CRISIS_SCENARIOS.map(sc => {
+    this.scenariosGrid.innerHTML = window.CRISIS_SCENARIOS.map(sc => {
       return `
         <div class="scenario-card">
           <div class="scenario-code">${sc.code} • ${sc.category.toUpperCase()}</div>
@@ -496,7 +496,7 @@ class StrategicApp {
   }
 
   openReader(articleId) {
-    const article = ARTICLES.find(a => a.id === articleId);
+    const article = window.ARTICLES.find(a => a.id === articleId);
     if (!article || !this.readerModal) return;
 
     this.activeArticleId = articleId;
@@ -558,7 +558,7 @@ class StrategicApp {
     if (!this.searchResultsContainer) return;
     const cleanQuery = query.toLowerCase().trim();
 
-    const matches = ARTICLES.filter(art => {
+    const matches = window.ARTICLES.filter(art => {
       if (!cleanQuery) return true;
       return art.title.toLowerCase().includes(cleanQuery) ||
              art.subtitle.toLowerCase().includes(cleanQuery) ||

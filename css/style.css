@@ -1663,6 +1663,7 @@ ul {
   font-style: italic;
 }
 
+.article-conclusion {
   border: 1px solid var(--border-medium);
   border-radius: var(--radius-sm);
   padding: 1.25rem;
