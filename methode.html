@@ -1,53 +1,414 @@
 <!DOCTYPE html>
-<html lang="fr" data-theme="dark">
+<html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chroniques d'Occident — Méthodologie OSINT</title>
+  <title>Chroniques d'Occident — Méthode de calcul OSINT du Baromètre du Risque</title>
 
-  <!-- Méta SEO & Référencement -->
   <meta name="description"
-    content="Revue de référence et observatoire géopolitique indépendant sur les risques de guerre civile, d'implosion institutionnelle et de conflit armé en Occident.">
+    content="Comment est calculé le Baromètre du Risque de Conflit 2026 : matrice OSINT, cotation pondérée, triangulation. Tradecraft de renseignement open-source.">
   <meta name="keywords"
-    content="guerre civile occident, risque de guerre europe, polarisation etats-unis, strategie militaire, guerre hybride, prospective 2030, defense europeenne, securite nationale">
+    content="OSINT, renseignement open-source, baromètre du risque, cotation pondérée, triangulation, Suwalki, méthodologie">
   <meta name="author" content="Chroniques d'Occident">
-  <meta property="og:title" content="CHRONIQUES D'OCCIDENT — Méthodologie OSINT">
+  <meta property="og:title" content="CHRONIQUES D'OCCIDENT — Méthode OSINT">
   <meta property="og:description"
-    content="Notre méthode de calcul du baromètre du risque 2026 : évaluation multidimensionnelle basée sur le croisement des données OSINT, polarisation politique, vulnérabilité des infrastructures et postures doctrinales militaires.">
+    content="Comment est calculé le Baromètre du Risque de Conflit 2026 : matrice OSINT, cotation pondérée, triangulation.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/images/hero.jpg">
-  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ccircle cx=%2750%27 cy=%2750%27 r=%2748%27 fill=%27%230a0f1a%27/%3E%3Cpath d=%27M50 15 C50 15 20 15 20 35 C20 55 50 85 50 85 C50 85 80 55 80 35 C80 15 50 15 50 15 Z%27 fill=%27none%27 stroke=%27%23c9a84c%27 stroke-width=%274%27/%3E%3Ccircle cx=%2750%27 cy=%2740%27 r=%278%27 fill=%27%23c9a84c%27/%3E%3Crect x=%2746%27 y=%2752%27 width=%278%27 height=%2716%27 rx=%272%27 fill=%27%23c9a84c%27/%3E%3Ccircle cx=%2750%27 cy=%2772%27 r=%273%27 fill=%27%23c9a84c%27/%3E%3C/svg%3E">
   <link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ccircle cx=%2750%27 cy=%2750%27 r=%2748%27 fill=%27%230a0f1a%27/%3E%3Cpath d=%27M50 15 C50 15 20 15 20 35 C20 55 50 85 50 85 C50 85 80 55 80 35 C80 15 50 15 50 15 Z%27 fill=%27none%27 stroke=%27%23c9a84c%27 stroke-width=%274%27/%3E%3Ccircle cx=%2750%27 cy=%2740%27 r=%278%27 fill=%27%23c9a84c%27/%3E%3Crect x=%2746%27 y=%2752%27 width=%278%27 height=%2716%27 rx=%272%27 fill=%27%23c9a84c%27/%3E%3Ccircle cx=%2750%27 cy=%2772%27 r=%273%27 fill=%27%23c9a84c%27/%3E%3C/svg%3E">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ccircle cx=%2750%27 cy=%2750%27 r=%2748%27 fill=%27%230a0f1a%27/%3E%3Cpath d=%27M50 15 C50 15 20 15 20 35 C20 55 50 85 50 85 C50 85 80 55 80 35 C80 15 50 15 50 15 Z%27 fill=%27none%27 stroke=%27%23c9a84c%27 stroke-width=%274%27/%3E%3Ccircle cx=%2750%27 cy=%2740%27 r=%278%27 fill=%27%23c9a84c%27/%3E%3Crect x=%2746%27 y=%2752%27 width=%278%27 height=%2716%27 rx=%272%27 fill=%27%23c9a84c%27/%3E%3Ccircle cx=%2750%27 cy=%2772%27 r=%273%27 fill=%27%23c9a84c%27/%3E%3C/svg%3E">
   <meta name="theme-color" content="#0a0f1a">
 
-  <!-- Polices Google Fonts de haute qualité -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
 
-  <!-- FontAwesome 6 pour icônes vectorielles tactiques -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <!-- Feuille de styles personnalisée -->
   <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* =========================================================================
+       MÉTHODE OSINT - Système de design spécifique
+       ========================================================================= */
+    .method-hero {
+      padding: 4rem 0 2rem 0;
+      text-align: center;
+    }
+
+    .method-hero h1 {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .method-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 720px;
+      margin: 0 auto 1rem auto;
+      line-height: 1.6;
+    }
+
+    .method-subtitle-en {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 2.5rem;
+    }
+
+    /* Boîte de cotation pondérée (style agence de renseignement) */
+    .method-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .method-box .box-title {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 1.5rem;
+      border-left: 4px solid var(--accent-gold);
+      padding-left: 1rem;
+    }
+
+    .formula-box {
+      background: rgba(7, 9, 14, 0.6);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      font-family: var(--font-mono);
+      font-size: 1.15rem;
+      color: var(--accent-gold);
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Sliders de poids */
+    .weight-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .weight-item {
+      background: rgba(11, 15, 25, 0.4);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .weight-item .item-label {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .weight-item .item-value {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .weight-item .item-bar {
+      height: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .weight-item .item-fill {
+      height: 100%;
+      border-radius: 3px;
+      background: linear-gradient(90deg, var(--accent-crimson), var(--accent-gold));
+      transition: width 1s ease;
+    }
+
+    .weight-item .item-fill.doctrine { width: 50%; }
+    .weight-item .item-fill.infra { width: 30%; }
+    .weight-item .item-fill.tweet { width: 10%; }
+    .weight-item .item-fill.signal { width: 10%; }
+
+    /* Section sources d'entrée */
+    .inputs-section {
+      margin-bottom: 3rem;
+    }
+
+    .inputs-section h2,
+    .checklist-section h2,
+    .scoring-section h2,
+    .triangulation-section h2 {
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .inputs-section h2 i,
+    .checklist-section h2 i,
+    .scoring-section h2 i,
+    .triangulation-section h2 i {
+      color: var(--accent-crimson);
+    }
+
+    .input-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1rem;
+    }
+
+    .input-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 1.5rem 1rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      transition: all var(--transition-fast);
+    }
+
+    .input-item:hover {
+      border-color: var(--accent-crimson);
+      background: var(--bg-card-hover);
+    }
+
+    .input-item .icon {
+      font-size: 1.75rem;
+      color: var(--accent-gold);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .input-item .label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .input-item .desc {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* Checklist Suwalki */
+    .checklist-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1rem;
+    }
+
+    .check-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .check-light {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .check-light.red { background: var(--accent-crimson); box-shadow: 0 0 8px var(--accent-crimson); }
+    .check-light.green { background: var(--accent-green); box-shadow: 0 0 8px var(--accent-green); }
+    .check-light.amber { background: var(--accent-amber); box-shadow: 0 0 8px var(--accent-amber); }
+
+    .check-text {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.4;
+    }
+
+    .check-text strong { color: #fff; }
+
+    /* Triangulation */
+    .triangulation-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .triangulation-diagram {
+      position: relative;
+      width: 320px;
+      height: 320px;
+    }
+
+    .tri-circle {
+      position: absolute;
+      border-radius: 50%;
+      border: 2px solid;
+      opacity: 0.15;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-align: center;
+      padding: 0.5rem;
+    }
+
+    .tri-a {
+      top: 0;
+      left: 50%;
+      width: 180px;
+      height: 180px;
+      transform: translateX(-50%);
+      border-color: var(--accent-crimson);
+    }
+
+    .tri-b {
+      bottom: 0;
+      left: 10%;
+      width: 180px;
+      height: 180px;
+      border-color: var(--accent-gold);
+    }
+
+    .tri-c {
+      bottom: 0;
+      right: 10%;
+      width: 180px;
+      height: 180px;
+      border-color: var(--accent-cyan);
+    }
+
+    .tri-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+      background: var(--accent-crimson);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-full);
+      font-family: var(--font-serif);
+      font-weight: 800;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 2px solid #fff;
+      box-shadow: 0 0 20px var(--accent-crimson);
+    }
+
+    .tri-legend {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .tri-legend .leg-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .tri-legend .leg-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    .lang-tag {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--accent-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+      display: inline-block;
+    }
+
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      border: 1px solid var(--border-medium);
+      color: var(--text-secondary);
+      padding: 0.6rem 1.25rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-family: var(--font-mono);
+      transition: all var(--transition-fast);
+      margin-top: 1rem;
+    }
+
+    .btn-back:hover {
+      border-color: var(--accent-crimson);
+      color: var(--accent-crimson);
+    }
+
+    @media (max-width: 768px) {
+      .input-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .triangulation-diagram {
+        width: 260px;
+        height: 260px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- Barre de progression de lecture au scroll -->
+  <!-- Barre de progression de lecture -->
   <div id="scroll-progress-bar"></div>
 
-  <!-- En-tête avec Menu Collant (Sticky Menu) -->
+  <!-- En-tête -->
   <header class="site-header" id="site-header">
     <div class="container nav-container">
-
-      <!-- Identité de la revue -->
-      <a href="#a-la-une" class="brand-link" aria-label="Accueil Chroniques d'Occident">
+      <a href="index.html" class="brand-link" aria-label="Accueil Chroniques d'Occident">
         <div class="brand-icon">
           <i class="fas fa-shield-virus"></i>
         </div>
@@ -56,135 +417,243 @@
           <span class="brand-sub">Observatoire Géopolitique & Stratégique</span>
         </div>
       </a>
-
-      <!-- Navigation Principale -->
       <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
-        <a href="#a-la-une" class="nav-link active">À la Une</a>
+        <a href="#a-la-une" class="nav-link">À la Une</a>
         <a href="#barometre" class="nav-link">Baromètre du Risque</a>
         <a href="#scenarios" class="nav-link">Matrices de Rupture</a>
-        <a href="#articles" class="nav-link">Articles</a>
+        <a href="index.html#analyses" class="nav-link">Articles</a>
       </nav>
-
+      <div class="header-actions">
+        <button class="btn-icon" id="theme-toggle-btn" title="Changer le mode d'affichage" aria-label="Changer de thème">
+          <i class="fas fa-sun"></i>
+        </button>
+        <button class="mobile-toggle" id="mobile-nav-toggle" aria-label="Ouvrir le menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
     </div>
   </header>
 
-  <!-- Contenu Principal -->
   <main class="container">
 
-    <!-- === BANNIÈRE PRINCIPALE === -->
-    <section class="hero-section" id="a-la-une">
-      <div class="hero-banner">
-        <div class="hero-content">
-          <h1>CHRONIQUES D'OCCIDENT</h1>
-          <h2>Revue d'Analyse Stratégique & Risques de Conflit</h2>
-          <p>Observatoire géopolitique indépendant sur les risques de guerre civile, d'implosion institutionnelle et de conflit armé en Occident.</p>
-        </div>
-      </div>
-    </section>
+    <!-- =========================================================================
+         HERO - MÉTHODE OSINT
+         ========================================================================= -->
+    <section class="method-hero">
+      <div class="lang-tag">Tradecraft OSINT — Open Source INTelligence</div>
+      <h1>Comment est calculé le Baromètre du Risque ?</h1>
+      <p class="method-subtitle">
+        Notre baromètre ne repose pas sur une opinion. Il résulte d'une <strong>matrice OSINT structurée</strong>
+        : collecte, cotation pondérée et triangulation. Voici le modèle exact, tel que les cellules de renseignement
+        open-source (RAND, DGSE, CIA) l'exposent.
+      </p>
+      <p class="method-subtitle-en">
+        How our Risk Barometer is calculated — our OSINT tradecraft matrix, verifiable and reproducible.
+      </p>
 
-    <!-- === BAROMÈTRE DU RISQUE 2026 === -->
-    <section class="barometer-section" id="barometre">
-      <div class="container">
-
-        <div class="section-header">
-          <div class="section-label">Indice Stratégique Annuel</div>
-          <h2 class="section-title">Baromètre du Risque de Conflit 2026</h2>
-          <p class="section-desc">
-            <a href="osint.md" class="method-link">Évaluation multidimensionnelle basée sur le croisement des données de renseignement en source ouverte (OSINT)</a>
-            <span class="method-arrow"> →</span>, de la polarisation politique, de la vulnérabilité des infrastructures et des postures doctrinales militaires.
-          </p>
-        </div>
-
-        <!-- Grille du Baromètre -->
-        <div class="barometer-grid" id="barometer-grid">
-          <!-- Rempli par JavaScript -->
-        </div>
-
-      </div>
-    </section>
-
-    <!-- === SCÉNARIOS PROSPECTIFS 2035 === -->
-    <section class="scenarios-section" id="scenarios">
-      <div class="container">
-
-        <div class="section-header">
-          <div class="section-label">Prospective & Wargames</div>
-          <h2 class="section-title">Les 4 Matrices de Rupture (2026 - 2035)</h2>
-          <p class="section-desc">
-            Synthèse des modélisations de crise issues des centres d'études polémologiques : de la dislocation progressive par le droit jusqu'à l'escalade conventionnelle majeure.
-          </p>
-        </div>
-
-        <!-- Grille des Scénarios -->
-        <div class="scenarios-grid" id="scenarios-grid">
-          <!-- Rempli par JavaScript -->
-        </div>
-
-      </div>
-    </section>
-
-    <!-- === SÉLECTION D'ARTICLES STRATÉGIQUES === -->
-    <section class="articles-section" id="articles">
-      <div class="container">
-
-        <div class="section-header">
-          <div class="section-label">Filtres & Recherche</div>
-          <h2 class="section-title">Parcourir les Articles</h2>
-          <p class="section-desc">
-            Utilisez les filtres thématiques ci-dessous pour explorer notre base de données d'enquêtes géopolitiques.
-          </p>
-        </div>
-
-        <!-- Barre de filtres -->
-        <div class="filter-bar">
-          <div class="category-pills">
-            <button class="category-pill active" data-category="tous">Tous</button>
-            <button class="category-pill" data-category="guerre-hybride">Guerre Hybride</button>
-            <button class="category-pill" data-category="conflit-interetat">Conflit Inter-État</button>
-            <button class="category-pill" data-category="cyber">Cyber</button>
+      <!-- Boîte de cotation pondérée -->
+      <div class="method-box">
+        <div class="box-title">Modèle de cotation pondérée</div>
+        <div class="formula-box">RISQUE = Σ (Poids × Indicateur) — sur 10</div>
+        <div class="weight-grid">
+          <div class="weight-item">
+            <div class="item-label">Doctrine militaire</div>
+            <div class="item-value">0.50</div>
+            <div class="item-bar"><div class="item-fill doctrine"></div></div>
           </div>
-          <div class="filter-search-box">
-            <i class="fas fa-search"></i>
-            <input type="text" id="global-search" placeholder="Rechercher un article...">
+          <div class="weight-item">
+            <div class="item-label">Infrastructures critiques</div>
+            <div class="item-value">0.30</div>
+            <div class="item-bar"><div class="item-fill infra"></div></div>
+          </div>
+          <div class="weight-item">
+            <div class="item-label">Signal SOCMINT (tweet, post)</div>
+            <div class="item-value">0.10</div>
+            <div class="item-bar"><div class="item-fill tweet"></div></div>
+          </div>
+          <div class="weight-item">
+            <div class="item-label">Signal isolé non confirmé</div>
+            <div class="item-value">0.10</div>
+            <div class="item-bar"><div class="item-fill signal"></div></div>
           </div>
         </div>
-
-        <!-- Grille des Articles -->
-        <div class="articles-grid" id="articles-grid">
-          <!-- Articles insérés par JavaScript -->
-        </div>
-
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 1rem; text-align: center;">
+          Un tweet isolé pèse 0.1. Une posture doctrinale pèse 0.5. Le score final se lit sur une échelle de 0 à 10.
+        </p>
       </div>
     </section>
+
+    <!-- =========================================================================
+         SECTION 1 - SOURCES D'ENTRÉE
+         ========================================================================= -->
+    <section class="inputs-section">
+      <h2><i class="fas fa-satellite-dish"></i> 1. Les 5 canaux de collecte OSINT</h2>
+      <div class="input-grid">
+        <div class="input-item">
+          <div class="icon"><i class="fas fa-satellite"></i></div>
+          <div class="label">Imagerie satellite</div>
+          <div class="desc">Mouvements de troupes, constructions de fortifications, activités portuaires.</div>
+        </div>
+        <div class="input-item">
+          <div class="icon"><i class="fas fa-plane"></i></div>
+          <div class="label">ADSB / AIS</div>
+          <div class="desc">Trajectoires d'avions militaires et de navires de guerre en temps réel.</div>
+        </div>
+        <div class="input-item">
+          <div class="icon"><i class="fas fa-hashtag"></i></div>
+          <div class="label">SOCMINT</div>
+          <div class="desc">Réseaux sociaux, forums, messageries cryptées, signaux de la foule.</div>
+        </div>
+        <div class="input-item">
+          <div class="icon"><i class="fas fa-file-alt"></i></div>
+          <div class="label">Documents publics</div>
+          <div class="desc">Décrets, budgets de défense, rapports parlementaires, marchés publics.</div>
+        </div>
+        <div class="input-item">
+          <div class="icon"><i class="fas fa-user-secret"></i></div>
+          <div class="label">Dark Web</div>
+          <div class="desc">Forums clandestins, fuites de données, ventes d'accès, renseignement humain.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 2 - CHECKLIST SUWALKI
+         ========================================================================= -->
+    <section class="checklist-section">
+      <h2><i class="fas fa-clipboard-check"></i> 2. Exemple concret — Corridor de Suwalki</h2>
+      <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem; max-width: 640px;">
+        Chaque indicateur reçoit un feu rouge (confirmé), amber (en cours) ou vert (stable). Le score du corridor
+        en déduit le niveau de menace interétatique.
+      </p>
+      <div class="checklist-grid">
+        <div class="check-item">
+          <div class="check-light red"></div>
+          <div class="check-text"><strong>Déploiement blindé</strong> au Bélarus — mouvements confirmés près de la frontière.</div>
+        </div>
+        <div class="check-item">
+          <div class="check-light red"></div>
+          <div class="check-text"><strong>Exercices OTAN</strong> interalliés à tir réel dans le corridor — posture élevée.</div>
+        </div>
+        <div class="check-item">
+          <div class="check-light amber"></div>
+          <div class="check-text"><strong>Câbles sous-marins</strong> Baltique — surveillance renforcée, coupures suspectes.</div>
+        </div>
+        <div class="check-item">
+          <div class="check-light green"></div>
+          <div class="check-text"><strong>Article 5 OTAN</strong> — clause d'assistance mutuelle active et crédible.</div>
+        </div>
+        <div class="check-item">
+          <div class="check-light green"></div>
+          <div class="check-text"><strong>Dissuasion nucléaire</strong> combinée US / FR / UK — intacte.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 3 - COTATION PONDÉRÉE (déjà en hero, mais mise en avant ici)
+         ========================================================================= -->
+
+    <!-- =========================================================================
+         SECTION 4 - TRIANGULATION
+         ========================================================================= -->
+    <section class="triangulation-section">
+      <h2><i class="fas fa-projector"></i> 3. Triangulation — Confiance élevée</h2>
+      <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem; max-width: 640px;">
+        Un seul indicateur ne suffit pas. La confiance est <strong>élevée</strong> uniquement quand trois vecteurs
+        indépendants convergent vers la même conclusion.
+      </p>
+      <div class="triangulation-wrap">
+        <div class="triangulation-diagram">
+          <div class="tri-circle tri-a">Capteurs techniques<br>(Satellite / ADSB)</div>
+          <div class="tri-circle tri-b">Sources humaines<br>(Dark Web / terrain)</div>
+          <div class="tri-circle tri-c">Documents ouverts<br>(Décrets / budgets)</div>
+          <div class="tri-center">High Confidence</div>
+        </div>
+        <div class="tri-legend">
+          <div class="leg-item"><div class="leg-dot" style="background: var(--accent-crimson);"></div> Vecteur technique</div>
+          <div class="leg-item"><div class="leg-dot" style="background: var(--accent-gold);"></div> Vecteur humain</div>
+          <div class="leg-item"><div class="leg-dot" style="background: var(--accent-cyan);"></div> Vecteur documentaire</div>
+        </div>
+      </div>
+    </section>
+
+    <a href="index.html#barometre" class="btn-back"><i class="fas fa-arrow-left"></i> Retour au baromètre</a>
 
   </main>
 
-  <!-- Footer -->
+  <!-- Pied de page -->
   <footer class="site-footer">
     <div class="container">
-      <div class="footer-content">
-        <div class="footer-about">
-          <h4>Chroniques d'Occident</h4>
-          <p>Observatoire géopolitique indépendant sur les risques de conflit en Occident.</p>
+      <div class="footer-grid">
+        <div class="footer-col-brand">
+          <div class="brand-link" style="margin-bottom: 1rem;">
+            <div class="brand-icon"><i class="fas fa-shield-virus"></i></div>
+            <div class="brand-texts">
+              <span class="brand-name">Chroniques <span>d'Occident</span></span>
+              <span class="brand-sub">Revue de Prospective Polémologique</span>
+            </div>
+          </div>
+          <p class="footer-manifesto">
+            Méthode OSINT publiée à titre de transparence analytique. Les scores du baromètre sont des estimations
+            de risque, non des prédictions.
+          </p>
         </div>
-        <div class="footer-links">
-          <h4>Navigation</h4>
-          <ul>
-            <li><a href="#a-la-une">Accueil</a></li>
-            <li><a href="#barometre">Baromètre</a></li>
-            <li><a href="#scenarios">Scénarios</a></li>
-            <li><a href="#articles">Articles</a></li>
-          </ul>
+        <div>
+          <h4 class="footer-col-title">Navigation</h4>
+          <div class="footer-links">
+            <a href="index.html">Accueil</a>
+            <a href="index.html#analyses">Articles</a>
+            <a href="index.html#barometre">Baromètre</a>
+            <a href="index.html#scenarios">Scénarios</a>
+          </div>
         </div>
-        <div class="footer-legal">
-          <p>© 2026 Chroniques d'Occident. Tous droits réservés.</p>
+        <div>
+          <h4 class="footer-col-title">Méthode</h4>
+          <div class="footer-links">
+            <a href="#">Cotation pondérée</a>
+            <a href="#">Triangulation</a>
+            <a href="#">Sources OSINT</a>
+            <a href="#">Confiance analytique</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 Chroniques d'Occident. Tous droits réservés.</div>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="#">Mentions Légales</a>
+          <a href="#">Politique de Confidentialité</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- Scripts -->
-  <script src="js/data.js"></script>
-  <script src="js/app.js"></script>
+  <script>
+    // Thème & progression de scroll (allégé, sans import ES module)
+    const root = document.documentElement;
+    const themeBtn = document.getElementById('theme-toggle-btn');
+    if (themeBtn) {
+      themeBtn.addEventListener('click', () => {
+        const next = root.getAttribute('data-theme') === 'editorial-light' ? 'dark' : 'editorial-light';
+        root.setAttribute('data-theme', next);
+        themeBtn.innerHTML = next === 'editorial-light' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
+      });
+    }
+    window.addEventListener('scroll', () => {
+      const bar = document.getElementById('scroll-progress-bar');
+      if (bar) {
+        const p = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+        bar.style.width = `${p}%`;
+      }
+    }, { passive: true });
+
+    // Mobile toggle
+    const mt = document.getElementById('mobile-nav-toggle');
+    const mn = document.getElementById('main-nav');
+    if (mt && mn) {
+      mt.addEventListener('click', () => mn.classList.toggle('open'));
+    }
+  </script>
 </body>
+
 </html>
