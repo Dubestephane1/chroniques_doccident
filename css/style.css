@@ -833,7 +833,6 @@ ul {
 .section-desc {
   font-size: 1rem;
   color: var(--text-muted);
-  max-width: 750px;
 }
 
 /* Barre de filtres & recherche */
