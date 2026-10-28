@@ -296,7 +296,7 @@ export const ARTICLES = [
       role: "Observatoire des Théâtres d'Opérations de l'OTAN",
       avatar: "assets/images/eastern_flank.jpg"
     },
-    heroImage: "assets/images/eastern_flank.jpg",
+    heroImage: "assets/images/suwalki.jpg",
     featured: false,
     excerpt: "La sanctuarisation de l'Europe par le parapluie américain vacille. Si Moscou testait la solidarité de l'Article 5 par une incursion localisée en Lituanie ou en Estonie, les nations européennes seraient-elles prêtes à entrer en guerre totale ?",
     keyTakeaways: [
@@ -314,6 +314,10 @@ export const ARTICLES = [
       <p>
         Sur le plan tactique, les trois républiques baltes (Estonie, Lettonie, Lituanie) partagent une absence fatale de profondeur stratégique. Adossées à la mer Baltique, elles sont reliées au reste du territoire de l'OTAN par une étroite bande de terre de 65 kilomètres de large : le <strong>corridor de Suwalki</strong>, coincé entre l'enclave russe hautement militarisée de Kaliningrad et le Bélarus allié de Moscou.
       </p>
+      <figure class="article-figure">
+        <img src="assets/images/suwalki.jpg" alt="Carte du Corridor de Suwalki" class="article-img">
+        <figcaption>Le corridor de Suwalki : point de rupture stratégique entre Kaliningrad et la Biélorussie.</figcaption>
+      </figure>
       <p>
         Dans les simulations d'état-major de la <em>RAND Corporation</em>, une offensive mécanisée synchronisée pourrait verrouiller ce couloir en moins de 72 heures, isolant les forces alliées présentes sur place avant même que le Conseil de l'Atlantique Nord n'ait pu s'accorder formellement sur une riposte unanime.
       </p>

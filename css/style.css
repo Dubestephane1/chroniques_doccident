@@ -1632,8 +1632,25 @@ ul {
   margin-bottom: 0.4rem;
 }
 
-.article-conclusion {
-  background: var(--bg-tertiary);
+.article-figure {
+  margin: 2rem 0;
+  text-align: center;
+}
+.article-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-medium);
+  box-shadow: var(--shadow-sm);
+}
+.article-figure figcaption {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 0.75rem;
+  font-style: italic;
+}
+
   border: 1px solid var(--border-medium);
   border-radius: var(--radius-sm);
   padding: 1.25rem;
