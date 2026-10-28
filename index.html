@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CHRONIQUES D'OCCIDENT | Revue d'Analyse Stratégique & Risques de Conflit</title>
+  
+  <!-- Méta SEO & Référencement -->
+  <meta name="description" content="Revue de référence et observatoire géopolitique indépendant sur les risques de guerre civile, d'implosion institutionnelle et de conflit armé en Occident.">
+  <meta name="keywords" content="guerre civile occident, risque de guerre europe, polarisation etats-unis, strategie militaire, guerre hybride, prospective 2030, defense europeenne, securite nationale">
+  <meta name="author" content="Chroniques d'Occident">
+  <meta property="og:title" content="CHRONIQUES D'OCCIDENT — L'Occident face au risque de guerre">
+  <meta property="og:description" content="Enquêtes exclusives, baromètre du risque 2026 et scénarios de rupture civile et militaire dans le monde occidental.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/hero.jpg">
+  
+  <!-- Polices Google Fonts de haute qualité -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome 6 pour icônes vectorielles tactiques -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <!-- Feuille de styles personnalisée -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Barre de progression de lecture au scroll -->
+  <div id="scroll-progress-bar"></div>
+
+  <!-- Barre de dépêches d'alerte stratégique continue -->
+  <div class="alert-ticker-bar">
+    <div class="container">
+      <div class="ticker-content">
+        <div class="ticker-badge">
+          <span class="ticker-pulse"></span>
+          VEILLE ACTIVE
+        </div>
+        <div class="ticker-scroller">
+          <div class="ticker-item">
+            <strong>WAR STUDIES (KING'S COLLEGE) :</strong> Le modèle David Betz évalue à 87% le risque de crise civile majeure en Europe sur 5 ans.
+          </div>
+          <div class="ticker-item">
+            <strong>WASHINGTON :</strong> Polarisation record, réactivation des doctrines de nullification dans 18 États fédérés.
+          </div>
+          <div class="ticker-item">
+            <strong>MER BALTIQUE :</strong> Surveillance renforcée suite à des coupures suspectes de câbles sous-marins.
+          </div>
+          <div class="ticker-item">
+            <strong>EUROPE DE L'OUEST :</strong> Tensions urbaines en hausse, les services de renseignement modélisent le risque de sécession asymétrique.
+          </div>
+          <div class="ticker-item">
+            <strong>CORRIDOR DE SUWALKI :</strong> Exercices interalliés à tir réel et redéploiement d'unités blindées.
+          </div>
+          <div class="ticker-item">
+            <strong>CYBERESPACE :</strong> Multiplication des attaques par déni de service distribué sur les réseaux énergétiques.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- En-tête avec Menu Collant (Sticky Menu) -->
+  <header class="site-header" id="site-header">
+    <div class="container nav-container">
+      
+      <!-- Identité de la revue -->
+      <a href="#" class="brand-link" aria-label="Accueil Chroniques d'Occident">
+        <div class="brand-icon">
+          <i class="fas fa-shield-virus"></i>
+        </div>
+        <div class="brand-texts">
+          <span class="brand-name">Chroniques <span>d'Occident</span></span>
+          <span class="brand-sub">Observatoire Géopolitique & Stratégique</span>
+        </div>
+      </a>
+
+      <!-- Navigation Principale -->
+      <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+        <a href="#a-la-une" class="nav-link active">À la Une</a>
+        <a href="#analyses" class="nav-link">Analyses & Dossiers</a>
+        <a href="#barometre" class="nav-link">Baromètre 2026</a>
+        <a href="#scenarios" class="nav-link">Scénarios 2035</a>
+        <a href="#veille" class="nav-link">Veille & Briefing</a>
+      </nav>
+
+      <!-- Actions Rapides & Outils -->
+      <div class="header-actions">
+        <!-- Bouton de Recherche Globale -->
+        <button class="btn-icon" id="search-trigger-btn" title="Rechercher une analyse (Ctrl+K)" aria-label="Recherche">
+          <i class="fas fa-search"></i>
+          <span class="search-shortcut-badge">⌘K</span>
+        </button>
+
+        <!-- Basculeur de Thème -->
+        <button class="btn-icon" id="theme-toggle-btn" title="Changer le mode d'affichage" aria-label="Changer de thème">
+          <i class="fas fa-sun"></i>
+        </button>
+
+        <!-- CTA Dossier Stratégique -->
+        <a href="#veille" class="btn-primary" style="text-decoration: none;">
+          <i class="fas fa-file-pdf"></i>
+          <span class="btn-text">Note Stratégique</span>
+        </a>
+
+        <!-- Bouton Menu Mobile Hamburger -->
+        <button class="mobile-toggle" id="mobile-nav-toggle" aria-label="Ouvrir le menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <main>
+    <!-- ====================================================================
+         SECTION HERO : À LA UNE GÉOPOLITIQUE
+         ==================================================================== -->
+    <section class="hero-section" id="a-la-une">
+      <div class="container">
+        
+        <div class="hero-grid">
+          <!-- Carte Principale Hero Dynamique (remplie par app.js) -->
+          <div id="hero-featured-container"></div>
+
+          <!-- Panneau Latéral : Radar de Crise & Compteurs -->
+          <aside class="hero-sidebar">
+            <div class="radar-summary-card">
+              <div class="sidebar-heading">
+                <div class="sidebar-title">
+                  <i class="fas fa-crosshairs"></i> Niveaux d'Alerte Régionaux
+                </div>
+                <div class="live-indicator">
+                  <span class="ticker-pulse" style="background: var(--accent-gold);"></span>
+                  ACTUALISÉ
+                </div>
+              </div>
+
+              <!-- Jauges Dynamiques de Tension -->
+              <div class="gauge-grid" id="hero-gauge-container">
+                <!-- Rempli par JavaScript -->
+              </div>
+            </div>
+
+            <!-- Bande de Compteurs Clés -->
+            <div class="stats-strip">
+              <div class="stat-box">
+                <div class="stat-number" style="color: var(--accent-crimson);">7.4<span style="font-size: 1rem; color: var(--text-dim);">/10</span></div>
+                <div class="stat-label">Indice Risque Global</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-number">4</div>
+                <div class="stat-label">Scénarios Modélisés</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-number">6</div>
+                <div class="stat-label">Foyers de Tension</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-number">84</div>
+                <div class="stat-label">Sources Stratégiques</div>
+              </div>
+            </div>
+          </aside>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION ANALYSES & DOSSIERS THÉMATIQUES
+         ==================================================================== -->
+    <section class="articles-section" id="analyses">
+      <div class="container">
+        
+        <!-- En-tête de section -->
+        <div class="section-header">
+          <div class="section-label">Dossiers & Investigations</div>
+          <h2 class="section-title">Les Fractures de l'Espace Occidental</h2>
+          <p class="section-desc">
+            Enquêtes de fond, modélisations polémologiques et études de renseignement sur les dynamiques de sédition civile, de confrontation interétatique et de guerre asymétrique.
+          </p>
+        </div>
+
+        <!-- Barre de Filtres et Recherche -->
+        <div class="filter-bar">
+          <div class="category-pills">
+            <button class="category-pill active" data-category="all">Toutes les analyses</button>
+            <button class="category-pill" data-category="Guerre Civile">Guerre Civile</button>
+            <button class="category-pill" data-category="Conflit Interétatique">Conflit Interétatique</button>
+            <button class="category-pill" data-category="Guerre Hybride">Guerre Hybride</button>
+            <button class="category-pill" data-category="Économie & Droit">Économie & Droit</button>
+            <button class="category-pill" data-category="Prospective">Prospective</button>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <span id="articles-count-label" style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">
+              Chargement...
+            </span>
+            <div class="filter-search-box">
+              <i class="fas fa-search"></i>
+              <input type="text" id="filter-search-input" placeholder="Filtrer par mot-clé (ex: OTAN, milices...)" aria-label="Filtrer les articles">
+            </div>
+          </div>
+        </div>
+
+        <!-- Grille des Cartes d'Articles Dynamiques -->
+        <div class="articles-grid" id="articles-grid">
+          <!-- Injecté par JavaScript -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION BAROMÈTRE DU RISQUE 2026
+         ==================================================================== -->
+    <section class="barometer-section" id="barometre">
+      <div class="container">
+        
+        <div class="section-header">
+          <div class="section-label">Indice Stratégique Annuel</div>
+          <h2 class="section-title">Baromètre du Risque de Conflit 2026</h2>
+          <p class="section-desc">
+            Évaluation multidimensionnelle basée sur le croisement des données de renseignement en source ouverte (OSINT), de la polarisation politique, de la vulnérabilité des infrastructures et des postures doctrinales militaires.
+          </p>
+        </div>
+
+        <!-- Grille du Baromètre -->
+        <div class="barometer-grid" id="barometer-grid">
+          <!-- Rempli par JavaScript -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION MATRICE DES SCÉNARIOS PROSPECTIFS 2035
+         ==================================================================== -->
+    <section class="scenarios-section" id="scenarios">
+      <div class="container">
+        
+        <div class="section-header">
+          <div class="section-label">Prospective & Wargames</div>
+          <h2 class="section-title">Les 4 Matrices de Rupture (2026 - 2035)</h2>
+          <p class="section-desc">
+            Synthèse des modélisations de crise issues des centres d'études polémologiques : de la dislocation progressive par le droit jusqu'à l'escalade conventionnelle majeure.
+          </p>
+        </div>
+
+        <!-- Grille des Scénarios -->
+        <div class="scenarios-grid" id="scenarios-grid">
+          <!-- Rempli par JavaScript -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION NEWSLETTER & BRIEFING STRATÉGIQUE
+         ==================================================================== -->
+    <section class="briefing-newsletter-section" id="veille">
+      <div class="container">
+        
+        <div class="briefing-box">
+          <div class="section-label" style="justify-content: center; margin-bottom: 0.8rem;">Abonnement Confidentiel</div>
+          <h2 class="briefing-title">Recevez le Briefing Hebdomadaire de Sécurité</h2>
+          <p class="briefing-desc">
+            Chaque vendredi matin, recevez notre télégramme de prospective : cartographie des signaux faibles, synthèse des incidents cyber et analyse des points chauds occidentaux.
+          </p>
+
+          <form class="newsletter-form" id="newsletter-form" action="https://api.web3forms.com/submit" method="POST">
+            <!-- Clé Web3Forms (remplacez par votre clé gratuite reçue sur https://web3forms.com) -->
+            <input type="hidden" name="access_key" id="web3forms-access-key" value="VOTRE_CLE_WEB3FORMS_ICI">
+            <input type="hidden" name="subject" value="Nouvel abonné - Chroniques d'Occident (Veille Stratégique)">
+            <input type="hidden" name="from_name" value="Chroniques d'Occident">
+            <input type="checkbox" name="botcheck" style="display: none;">
+
+            <input type="email" name="email" id="newsletter-email" class="newsletter-input" placeholder="Votre adresse électronique professionnelle" required autocomplete="email">
+            <button type="submit" class="btn-primary" id="newsletter-submit-btn">
+              <i class="fas fa-paper-plane"></i> <span id="newsletter-btn-text">S'inscrire à la Veille</span>
+            </button>
+          </form>
+
+          <div style="font-size: 0.75rem; color: var(--text-dim); margin-top: 1.25rem;">
+            <i class="fas fa-lock"></i> Transmission sécurisée via Web3Forms / Formspree • Confidentialité garantie • Désabonnement en 1 clic
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ====================================================================
+       PIED DE PAGE (FOOTER)
+       ==================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      
+      <div class="footer-grid">
+        <div class="footer-col-brand">
+          <div class="brand-link" style="margin-bottom: 1rem;">
+            <div class="brand-icon">
+              <i class="fas fa-shield-virus"></i>
+            </div>
+            <div class="brand-texts">
+              <span class="brand-name">Chroniques <span>d'Occident</span></span>
+              <span class="brand-sub">Revue de Prospective Polémologique</span>
+            </div>
+          </div>
+          <p class="footer-manifesto">
+            Plateforme indépendante d'analyse stratégique consacrée à l'étude rigoureuse des tensions civiques, des menaces hybrides et des risques d'affrontements en Occident. Éclairer les décideurs et les citoyens sans alarmisme ni complaisance.
+          </p>
+          <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-gold);">
+            DEFENSE READINESS LEVEL : DEFCON 3 EQUIVALENT
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Rubriques</h4>
+          <div class="footer-links">
+            <a href="#analyses">Guerre Civile & Fractures</a>
+            <a href="#analyses">Affrontements Conventionnels</a>
+            <a href="#analyses">Sabotage & Cyber-Guerre</a>
+            <a href="#analyses">Économie de Défense</a>
+            <a href="#scenarios">Scénarios Prospectifs</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Méthodologie</h4>
+          <div class="footer-links">
+            <a href="#">Protocole d'Évaluation du Risque</a>
+            <a href="#">Renseignement Open-Source (OSINT)</a>
+            <a href="#">Comité Scientifique & Pairs</a>
+            <a href="#">Éthique et Déontologie</a>
+            <a href="#">Archives & Rétrospectives</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Partenaires & Veille</h4>
+          <div class="footer-links">
+            <a href="#">Institut des Hautes Études</a>
+            <a href="#">Centre d'Analyses Polémologiques</a>
+            <a href="#">Fondation pour la Recherche Stratégique</a>
+            <a href="#">Flux RSS & API de Données</a>
+            <a href="#">Contact Rédaction</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 Chroniques d'Occident. Tous droits réservés. Reproduction d'extraits autorisée avec mention obligatoire de la source.
+        </div>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="#">Mentions Légales</a>
+          <a href="#">Politique de Confidentialité</a>
+          <a href="#">Gestion des Cookies</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ====================================================================
+       MODAL DE LECTURE COMPLÈTE DE L'ARTICLE (READER VIEW)
+       ==================================================================== -->
+  <div class="reader-modal-overlay" id="reader-modal" role="dialog" aria-modal="true" aria-labelledby="reader-top-title">
+    <div class="reader-modal-container">
+      
+      <!-- Barre d'outils du lecteur -->
+      <div class="reader-top-bar">
+        <div class="reader-top-title" id="reader-top-title">Lecture d'Analyse</div>
+        
+        <div class="reader-actions-bar">
+          <button class="reader-btn" id="font-decrease" title="Diminuer la taille de police">A-</button>
+          <button class="reader-btn" id="font-increase" title="Augmenter la taille de police">A+</button>
+          <button class="reader-btn" id="share-article-btn" title="Copier le lien de l'article">
+            <i class="fas fa-link"></i> Partager
+          </button>
+          <button class="reader-btn reader-btn-close" id="reader-close-btn" title="Fermer la lecture (Échap)">
+            <i class="fas fa-times"></i> Fermer
+          </button>
+        </div>
+      </div>
+
+      <!-- Corps déroulant du document -->
+      <div class="reader-scroll-content">
+        <div id="reader-content-body">
+          <!-- Injecté par JavaScript -->
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       MODAL DE RECHERCHE GLOBALE INSTANTANÉE (CTRL + K)
+       ==================================================================== -->
+  <div class="search-modal-overlay" id="search-modal" role="dialog" aria-modal="true" aria-label="Recherche globale">
+    <div class="search-modal-box">
+      <div class="search-modal-header">
+        <i class="fas fa-search" style="color: var(--accent-crimson);"></i>
+        <input type="text" id="search-modal-input" class="search-modal-input" placeholder="Rechercher parmi les dossiers, concepts et zones..." autocomplete="off">
+        <button id="search-modal-close" class="reader-btn" style="border: none;">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <div class="search-results-list" id="search-results-container">
+        <!-- Rempli en temps réel -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Conteneur de Notifications Toast -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Script d'Initialisation ES Module -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
