@@ -160,8 +160,10 @@ class StrategicApp {
     }
     if (this.shareArticleBtn) {
       this.shareArticleBtn.addEventListener('click', () => {
-        navigator.clipboard?.writeText(window.location.href);
-        this.showToast('Lien de l’article copié dans le presse-papiers');
+        const article = ARTICLES.find(a => a.id === this.activeArticleId);
+        const baseUrl = window.location.origin + window.location.pathname;
+        const articleUrl = article ? `${baseUrl}#${article.slug}` : window.location.href;
+        navigator.clipboard?.writeText(articleUrl);
       });
     }
 
