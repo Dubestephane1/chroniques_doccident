@@ -473,8 +473,8 @@ export const ARTICLES = [
       name: "Bureau d'Analyse Économique & Risques Souverains",
       role: "Section Prospective Macrofinancière",
       avatar: "assets/images/hero.jpg"
-    },
-    heroImage: "assets/images/emeutes_insurrection.jpg",
+    heroImage: "assets/images/hero.jpg",
+    heroImage: "assets/images/hero.jpg",
     featured: false,
     excerpt: "L'État-providence a servi pendant soixante-dix ans de bouclier contre les guerres civiles en Occident. Que se passe-t-il lorsque la dette publique ne permet plus d'acheter la paix sociale ?",
     keyTakeaways: [
@@ -521,8 +521,8 @@ export const ARTICLES = [
       name: "Comité de Prospective & Wargames Stratégiques",
       role: "Direction Scientifique des Chroniques d'Occident",
       avatar: "assets/images/hero.jpg"
-    },
-    heroImage: "assets/images/emeutes_insurrection.jpg",
+    heroImage: "assets/images/hero.jpg",
+    heroImage: "assets/images/hero.jpg",
     featured: false,
     excerpt: "Comment se dessine l'avenir sécuritaire de l'Occident ? Décryptage des quatre matrices prospectives issues des wargames militaires et des modèles d'analyse sociopolitique pour la prochaine décennie.",
     keyTakeaways: [
