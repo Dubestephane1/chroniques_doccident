@@ -1,0 +1,4 @@
+# Local helper scripts (Windows shell escaping workarounds)
+*.py
+*.bat
+*.tmp
