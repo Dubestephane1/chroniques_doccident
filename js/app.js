@@ -16,6 +16,7 @@ class StrategicApp {
     this.initElements();
     this.initEvents();
     this.renderAll();
+    this.handleInitialHash();
   }
 
   initElements() {
@@ -114,6 +115,11 @@ class StrategicApp {
       if (e.key === 'Escape') {
         this.closeAllModals();
       }
+    });
+
+    // Ouvrir un article directement depuis l'ancre URL (ex: #slug-article)
+    window.addEventListener('hashchange', () => {
+      this.handleInitialHash();
     });
 
     if (this.searchTriggerBtn) {
@@ -277,6 +283,18 @@ class StrategicApp {
     this.renderArticles();
     this.renderBarometer();
     this.renderScenarios();
+  }
+
+  handleInitialHash() {
+    const hash = window.location.hash;
+    if (!hash) return;
+    const slug = hash.replace(/^#/, '');
+    if (!slug) return;
+    const article = window.ARTICLES.find(a => a.slug === slug);
+    if (article) {
+      // Small delay to ensure the DOM is fully rendered before opening the modal
+      setTimeout(() => this.openReader(article.id), 100);
+    }
   }
 
   renderHero() {
