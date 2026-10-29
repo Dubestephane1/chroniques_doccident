@@ -472,9 +472,9 @@ window.ARTICLES = [
     author: {
       name: "Bureau d'Analyse Économique & Risques Souverains",
       role: "Section Prospective Macrofinancière",
-      avatar: "assets/images/hero.jpg"
+      avatar: "assets/images/dette-souveraine.jpg"
     },
-    heroImage: "assets/images/hero.jpg",
+    heroImage: "assets/images/dette-souveraine.jpg",
     featured: false,
     excerpt: "L'État-providence a servi pendant soixante-dix ans de bouclier contre les guerres civiles en Occident. Que se passe-t-il lorsque la dette publique ne permet plus d'acheter la paix sociale ?",
     keyTakeaways: [
