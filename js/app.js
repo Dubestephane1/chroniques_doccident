@@ -163,7 +163,37 @@ class StrategicApp {
         const article = window.ARTICLES.find(a => a.id === this.activeArticleId);
         const baseUrl = window.location.origin + window.location.pathname;
         const articleUrl = article ? `${baseUrl}#${article.slug}` : window.location.href;
-        navigator.clipboard?.writeText(articleUrl);
+
+        async function copy() {
+          try {
+            await navigator.clipboard.writeText(articleUrl);
+            return true;
+          } catch (err) {
+            // Fallback for file:// or restricted contexts
+            const ta = document.createElement('textarea');
+            ta.value = articleUrl;
+            ta.style.position = 'fixed';
+            ta.style.opacity = '0';
+            document.body.appendChild(ta);
+            ta.select();
+            try {
+              document.execCommand('copy');
+              return true;
+            } catch (e) {
+              return false;
+            } finally {
+              document.body.removeChild(ta);
+            }
+          }
+        }
+
+        copy().then((ok) => {
+          if (ok) {
+            this.showToast('🔗 Lien copié dans le presse-papiers');
+          } else {
+            this.showToast('❌ Impossible de copier le lien');
+          }
+        });
       });
     }
 
