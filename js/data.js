@@ -561,7 +561,7 @@ window.ARTICLES = [
       </p>
     `
   }
-,
+  ,
   {
     "id": "art-07-bezmenov-subversion",
     "slug": "modele-bezmenov-subversion-ideologique-kgb",
@@ -613,7 +613,7 @@ window.ARTICLES = [
       role: "Direction Scientifique des Chroniques d'Occident",
       avatar: "assets/images/hero.jpg"
     },
-    heroImage: "assets/images/hero.jpg",
+    heroImage: "assets/images/4_turning.jpg",
     featured: false,
     excerpt: "La théorie du Quatrième Tournant de William Strauss et Neil Howe propose un cycle historique d'environ 80-100 ans (le saeculum), divisé en quatre turnings : Haut, Éveil, Dénouement, Crise. Les États-Unis et l'Occident entreraient dans une phase de Crise dont le climax est attendu entre la fin des années 2020 et le début des années 2030. Une grille de lecture pour les scénarios de rupture 2026-2035.",
     keyTakeaways: [
